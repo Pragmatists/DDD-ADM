@@ -6,17 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@Controller
 @EnableAutoConfiguration
-public class HelloWorldController {
-
-    @RequestMapping("/")
-    @ResponseBody
-    String helloWorld() {
-        return "Hello World!";
-    }
+public class Application {
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(HelloWorldController.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
