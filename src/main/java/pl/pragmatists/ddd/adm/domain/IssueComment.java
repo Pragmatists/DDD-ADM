@@ -1,4 +1,4 @@
-package pl.pragmatists.ddd.adm.model;
+package pl.pragmatists.ddd.adm.domain;
 
 import javax.persistence.*;
 

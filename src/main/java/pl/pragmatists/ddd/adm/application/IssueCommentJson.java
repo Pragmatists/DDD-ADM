@@ -1,6 +1,6 @@
-package pl.pragmatists.ddd.adm.controller.json;
+package pl.pragmatists.ddd.adm.application;
 
-import pl.pragmatists.ddd.adm.model.IssueComment;
+import pl.pragmatists.ddd.adm.domain.IssueComment;
 
 public class IssueCommentJson {
     public String comment;

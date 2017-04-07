@@ -1,5 +1,6 @@
-package pl.pragmatists.ddd.adm.controller;
+package pl.pragmatists.ddd.adm;
 
+import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,9 +9,8 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.*;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import pl.pragmatists.ddd.adm.Application;
-import pl.pragmatists.ddd.adm.controller.json.*;
-import pl.pragmatists.ddd.adm.model.IssueStatus;
+import pl.pragmatists.ddd.adm.application.*;
+import pl.pragmatists.ddd.adm.domain.IssueStatus;
 
 import java.util.List;
 
@@ -18,9 +18,9 @@ import static java.lang.String.format;
 import static java.util.Arrays.asList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.http.HttpStatus.FORBIDDEN;
-import static pl.pragmatists.ddd.adm.model.IssueStatus.DONE;
-import static pl.pragmatists.ddd.adm.model.IssueStatus.IN_PROGRESS;
-import static pl.pragmatists.ddd.adm.model.IssueStatus.NEW;
+import static pl.pragmatists.ddd.adm.domain.IssueStatus.DONE;
+import static pl.pragmatists.ddd.adm.domain.IssueStatus.IN_PROGRESS;
+import static pl.pragmatists.ddd.adm.domain.IssueStatus.NEW;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Application.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -36,7 +36,7 @@ public class IssueControllerTest {
 
         List<IssueJson> issues = allIssues();
 
-        assertThat(issues).contains(new IssueJson("Bug 01"));
+        Assertions.assertThat(issues).contains(new IssueJson("Bug 01"));
     }
 
     @Test

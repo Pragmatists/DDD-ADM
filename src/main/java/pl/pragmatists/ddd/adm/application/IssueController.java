@@ -1,14 +1,9 @@
-package pl.pragmatists.ddd.adm.controller;
+package pl.pragmatists.ddd.adm.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.pragmatists.ddd.adm.controller.json.IssueJson;
-import pl.pragmatists.ddd.adm.controller.json.NewIssueCommentJson;
-import pl.pragmatists.ddd.adm.controller.json.NewIssueJson;
-import pl.pragmatists.ddd.adm.controller.json.UpdateIssueJson;
-import pl.pragmatists.ddd.adm.model.Issue;
-import pl.pragmatists.ddd.adm.service.IssueService;
+import pl.pragmatists.ddd.adm.domain.Issue;
 
 import java.util.List;
 

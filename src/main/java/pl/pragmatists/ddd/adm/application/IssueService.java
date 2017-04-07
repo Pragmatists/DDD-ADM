@@ -1,10 +1,10 @@
-package pl.pragmatists.ddd.adm.service;
+package pl.pragmatists.ddd.adm.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import pl.pragmatists.ddd.adm.model.Issue;
-import pl.pragmatists.ddd.adm.model.IssueStatus;
-import pl.pragmatists.ddd.adm.repository.IssueRepository;
+import pl.pragmatists.ddd.adm.domain.Issue;
+import pl.pragmatists.ddd.adm.domain.IssueRepository;
+import pl.pragmatists.ddd.adm.domain.IssueStatus;
 
 import javax.transaction.Transactional;
 import java.util.List;

@@ -1,8 +1,7 @@
-package pl.pragmatists.ddd.adm.repository;
+package pl.pragmatists.ddd.adm.domain;
 
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Repository;
-import pl.pragmatists.ddd.adm.model.Issue;
+import pl.pragmatists.ddd.adm.domain.Issue;
 
 import java.util.List;
 

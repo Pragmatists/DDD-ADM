@@ -1,8 +1,8 @@
-package pl.pragmatists.ddd.adm.controller.json;
+package pl.pragmatists.ddd.adm.application;
 
-import pl.pragmatists.ddd.adm.model.IssueStatus;
-import pl.pragmatists.ddd.adm.model.Issue;
-import pl.pragmatists.ddd.adm.model.IssueComment;
+import pl.pragmatists.ddd.adm.domain.IssueStatus;
+import pl.pragmatists.ddd.adm.domain.Issue;
+import pl.pragmatists.ddd.adm.domain.IssueComment;
 
 import java.util.List;
 

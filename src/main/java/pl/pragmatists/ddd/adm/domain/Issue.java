@@ -1,13 +1,10 @@
-package pl.pragmatists.ddd.adm.model;
+package pl.pragmatists.ddd.adm.domain;
 
 import javax.persistence.*;
-import java.util.Collections;
 import java.util.List;
 
 import static java.util.Collections.unmodifiableList;
 import static javax.persistence.GenerationType.AUTO;
-import static pl.pragmatists.ddd.adm.model.IssueStatus.DONE;
-import static pl.pragmatists.ddd.adm.model.IssueStatus.NEW;
 
 @Entity
 public class Issue {
@@ -26,7 +23,7 @@ public class Issue {
 
     public Issue(String name) {
         this.name = name;
-        this.status = NEW;
+        this.status = IssueStatus.NEW;
     }
 
     public String getName() {
@@ -46,14 +43,14 @@ public class Issue {
     }
 
     public void changeStatusTo(IssueStatus newStatus) {
-        if (this.status == DONE && newStatus == NEW || this.status == NEW && newStatus == DONE) {
+        if (this.status == IssueStatus.DONE && newStatus == IssueStatus.NEW || this.status == IssueStatus.NEW && newStatus == IssueStatus.DONE) {
             throw new RuntimeException(String.format("Cannot change issue status from %s to %s", this.status, newStatus));
         }
         this.status = newStatus;
     }
 
     public void addComment(String comment) {
-        if (status == DONE) {
+        if (status == IssueStatus.DONE) {
             throw new RuntimeException("Cannot add comment to done issue");
         }
         comments.add(new IssueComment(comment));

@@ -1,4 +1,4 @@
-package pl.pragmatists.ddd.adm.controller.json;
+package pl.pragmatists.ddd.adm.application;
 
 public class NewIssueCommentJson {
 

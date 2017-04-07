@@ -1,11 +1,12 @@
-package pl.pragmatists.ddd.adm.controller;
+package pl.pragmatists.ddd.adm;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import pl.pragmatists.ddd.adm.repository.IssueRepository;
-import pl.pragmatists.ddd.adm.service.IssueService;
+import pl.pragmatists.ddd.adm.application.IssueController;
+import pl.pragmatists.ddd.adm.domain.IssueRepository;
+import pl.pragmatists.ddd.adm.application.IssueService;
 
 @Configuration
 @EnableAutoConfiguration
