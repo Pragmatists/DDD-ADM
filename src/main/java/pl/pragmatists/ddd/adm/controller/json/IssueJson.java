@@ -46,7 +46,6 @@ public class IssueJson {
         return name != null ? name.equals(issueJson.name) : issueJson.name == null;
     }
 
-
     @Override
     public int hashCode() {
         return name != null ? name.hashCode() : 0;

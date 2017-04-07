@@ -8,11 +8,9 @@ import pl.pragmatists.ddd.adm.controller.json.NewIssueCommentJson;
 import pl.pragmatists.ddd.adm.controller.json.NewIssueJson;
 import pl.pragmatists.ddd.adm.controller.json.UpdateIssueJson;
 import pl.pragmatists.ddd.adm.model.Issue;
-import pl.pragmatists.ddd.adm.model.IssueComment;
 import pl.pragmatists.ddd.adm.service.IssueService;
 
 import java.util.List;
-import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 import static org.springframework.http.HttpStatus.FORBIDDEN;
@@ -67,11 +65,13 @@ public class IssueController {
 
     @RequestMapping(value = "/{issueId}/comment", method = POST)
     @ResponseStatus(OK)
-    public ResponseEntity<Long> newIssueComment(@PathVariable String issueId, @RequestBody NewIssueCommentJson newIssueCommentJson) {
-        Optional<IssueComment> createdIssueComment = issueService.addComment(newIssueCommentJson.comment, issueId);
-        return createdIssueComment
-                .map(issueComment -> ok(issueComment.getId()))
-                .orElse(status(FORBIDDEN).build());
+    public ResponseEntity<Void> newIssueComment(@PathVariable String issueId, @RequestBody NewIssueCommentJson newIssueCommentJson) {
+        try {
+            issueService.addComment(newIssueCommentJson.comment, issueId);
+            return ok().build();
+        } catch (RuntimeException ex) {
+            return status(FORBIDDEN).build();
+        }
     }
 
 

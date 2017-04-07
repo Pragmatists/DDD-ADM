@@ -13,14 +13,10 @@ public class IssueComment {
 
     private String comment;
 
-    @OneToOne
-    private Issue issue;
+    private IssueComment() { }
 
-    public IssueComment() { }
-
-    public IssueComment(String comment, Issue issue) {
+    public IssueComment(String comment) {
         this.comment = comment;
-        this.issue = issue;
     }
 
     public Long getId() {
