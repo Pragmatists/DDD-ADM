@@ -9,9 +9,8 @@ import static javax.persistence.GenerationType.AUTO;
 @Entity
 public class Issue {
 
-    @Id
-    @GeneratedValue(strategy = AUTO)
-    private Long id;
+    @EmbeddedId
+    private IssueId id;
     private String name;
     private IssueStatus status;
     @OneToMany(cascade = CascadeType.MERGE)
@@ -21,7 +20,8 @@ public class Issue {
     private Issue() {
     }
 
-    public Issue(String name) {
+    public Issue(String name, IssueId issueId) {
+        this.id = issueId;
         this.name = name;
         this.status = IssueStatus.NEW;
     }
@@ -30,7 +30,7 @@ public class Issue {
         return name;
     }
 
-    public Long getId() {
+    public IssueId getId() {
         return id;
     }
 

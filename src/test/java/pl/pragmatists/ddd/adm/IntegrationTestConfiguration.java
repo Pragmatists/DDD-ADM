@@ -5,6 +5,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import pl.pragmatists.ddd.adm.application.IssueController;
+import pl.pragmatists.ddd.adm.domain.IssueIdSequenceGenerator;
 import pl.pragmatists.ddd.adm.domain.IssueRepository;
 import pl.pragmatists.ddd.adm.application.IssueService;
 
@@ -18,8 +19,8 @@ public class IntegrationTestConfiguration {
     }
 
     @Bean
-    public IssueService issueService(IssueRepository issueRepository) throws Exception {
-        return new IssueService(issueRepository);
+    public IssueService issueService(IssueRepository issueRepository, IssueIdSequenceGenerator issueIdSequenceGenerator) throws Exception {
+        return new IssueService(issueRepository, issueIdSequenceGenerator);
     }
 
     @Bean

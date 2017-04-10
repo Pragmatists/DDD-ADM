@@ -44,12 +44,12 @@ public class IssueController {
     @ResponseStatus(OK)
     public Long newIssue(@RequestBody NewIssueJson newIssueJson) {
         Issue createdIssue = issueService.create(newIssueJson.name);
-        return createdIssue.getId();
+        return createdIssue.getId().value();
     }
 
     @RequestMapping(value = "/{issueId}", method = PUT)
     @ResponseStatus(OK)
-    public ResponseEntity<Void> update(@PathVariable Long issueId, @RequestBody UpdateIssueJson updateIssueJson) {
+    public ResponseEntity<Void> update(@PathVariable String issueId, @RequestBody UpdateIssueJson updateIssueJson) {
         try {
             issueService.update(issueId, updateIssueJson.status);
             return ok().build();
